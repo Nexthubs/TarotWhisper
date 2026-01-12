@@ -42,12 +42,6 @@ export default function Home() {
     const baseUrl = localStorage.getItem('tarot_api_base_url')
     const hasLocalConfig = Boolean(apiKey && baseUrl)
 
-    if (!hasLocalConfig && !defaultLlmUsable) {
-      showToast('请先在设置页面配置您的 API', 'warning')
-      router.push('/settings')
-      return
-    }
-
     sessionStorage.setItem('tarot_question', question)
     sessionStorage.setItem('tarot_spread', selectedSpread)
 
@@ -91,15 +85,9 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-warning">需要配置 API</h3>
-                  <p className="text-sm text-warning/80">请先配置您的 OpenAI 兼容 API 以开始占卜</p>
+                  <p className="text-sm text-warning/80">请先配置您的大语言模型 API 以开始占卜</p>
                 </div>
               </div>
-              <button
-                onClick={() => router.push('/settings')}
-                className="px-6 py-2 rounded-full bg-warning/20 hover:bg-warning/30 text-warning font-medium transition-colors text-sm"
-              >
-                前往设置
-              </button>
             </div>
           </div>
         )}
@@ -178,9 +166,6 @@ export default function Home() {
             <div className="flex gap-8 text-sm font-medium text-slate-400">
               <button onClick={() => router.push('/history')} className="hover:text-white transition-colors flex items-center gap-2">
                 <span>📜</span> 占卜历史
-              </button>
-              <button onClick={() => router.push('/settings')} className="hover:text-white transition-colors flex items-center gap-2">
-                <span>⚙️</span> 设置
               </button>
             </div>
           </div>
