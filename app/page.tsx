@@ -44,7 +44,7 @@ export default function Home() {
 
     sessionStorage.setItem('tarot_question', question)
     sessionStorage.setItem('tarot_spread', selectedSpread)
-
+    sessionStorage.removeItem('tarot_drawn_cards') // 清除上次抽牌记录
     router.push('/draw')
   }
 
