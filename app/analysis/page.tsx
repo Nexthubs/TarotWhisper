@@ -163,12 +163,6 @@ export default function AnalysisPage() {
               <span className="text-xl">📜</span> 占卜历史
             </button>
 
-            <button
-              onClick={() => router.push('/settings')}
-              className="px-8 py-3 rounded-full glass-button text-slate-200 hover:text-white font-medium flex items-center gap-2"
-            >
-              <span className="text-xl">⚙️</span> 设置
-            </button>
           </div>
         </div>
       </div>
